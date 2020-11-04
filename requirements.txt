@@ -1,0 +1,5 @@
+python
+pandas
+nltk
+sklearn
+flask
