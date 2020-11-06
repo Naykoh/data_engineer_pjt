@@ -10,9 +10,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-print(ROOT)
-
-
 class FlaskTest(unittest.TestCase):
     def setUp(self):
         self.sentence="I love this incredible cookie !"

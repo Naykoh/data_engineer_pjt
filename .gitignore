@@ -1,6 +1,0 @@
-.vscode
-
-src/__pycache__
-src/process_and_predict/__pycache__
-
-notebook/.ipynb_checkpoints
