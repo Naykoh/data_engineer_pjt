@@ -8,7 +8,6 @@
 import pickle
 from collections import defaultdict
 
-import pandas as pd
 from nltk import pos_tag
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet as wn
@@ -40,20 +39,20 @@ def process(sentence):
     
     # defaultdict is a dictionary that provides a default value if the index is not found
     # in this example, the dictionary defaults to nouns
-    tag_map = defaultdict(lambda : wn.NOUN)
-    tag_map['J'] = wn.ADJ
-    tag_map['V'] = wn.VERB
-    tag_map['R'] = wn.ADV
+    # tag_map = defaultdict(lambda : wn.NOUN)
+    # tag_map['J'] = wn.ADJ
+    # tag_map['V'] = wn.VERB
+    # tag_map['R'] = wn.ADV
 
     stopWords = stopwords.words('english')
 
     word_Lemmatized = WordNetLemmatizer()
 
     final_words = []
-    for word, tag in pos_tag(sentence_tokenized):
+    for word in sentence_tokenized:
         # Below condition is to check for Stop words and consider only alphabets
         if word not in stopWords and word.isalpha():
-            final_words.append(word_Lemmatized.lemmatize(word,tag_map[tag[0]]))
+            final_words.append(word_Lemmatized.lemmatize(word))
     # The final processed set of words for each iteration will be stored in 'text_final'
 
     return str(final_words)

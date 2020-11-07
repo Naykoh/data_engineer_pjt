@@ -4,10 +4,6 @@ WORKDIR /home
 
 COPY requirements.txt .
 
-COPY models .
-
-COPY src .
-
 ENV FLASK_APP=app.py
 
 RUN pip install -r requirements.txt

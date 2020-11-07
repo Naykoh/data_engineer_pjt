@@ -1,11 +1,13 @@
 from flask import Flask, request, render_template
 import json
 from src.process_and_predict import process_and_predict
+import os
+
 
 app = Flask(__name__)
 
 def predict(sentence):
-    status=''
+    status='success'
     try:
         processed_sentence=process_and_predict.process(sentence)
         prediction = process_and_predict.predict(processed_sentence)
@@ -23,8 +25,12 @@ def index():
         details=request.form
 
         if details['form_type'] == 'predict':
+            # processed_sentence=process_and_predict.process(details['sentence'])
+            # prediction = process_and_predict.predict(processed_sentence)
+            # return prediction
             return render_template('result.html',result=predict(details['sentence']))
-   
+                         
+
     return render_template('index.html')
 
 if __name__== '__main__':

@@ -2,6 +2,7 @@ import unittest
 import os
 import sys
 sys.path.append("C:\\Users\\nana-\\data_engineer_pjt")
+
 from src.process_and_predict import process_and_predict
 import string
 
