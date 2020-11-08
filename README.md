@@ -31,10 +31,19 @@ Built with: Docker
 How to build and run the docker image
 
 ### Prerequisites
-This project has been done in specific conda environment
+This project has been done in a specific conda environment, to reproduce this environment:
+(reproducing the environment is not mandatory, but if you have problem, it is better to reproduce the same environment)
 
+1. Launch an anaconda prompt
+
+2. Run this from the repo path :
 ```sh
-conda create --name <env_name> --file requirementsconda.txt
+conda env create -f environment.yml
+```
+
+3. Activate this new environment
+```sh
+conda activate sentiment_analysis
 ```
 ### Installation
 
