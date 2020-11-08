@@ -1,9 +1,11 @@
-start docker-compose up
+start docker build -t sentiment_analysis .
+sleep 10
+start docker run -p 5000:5000 sentiment_analysis
+sleep 5
 
 while true
 do
-    status=$(curl -s --head http://localhost:5000/)
-    echo $status
+
     if curl --output /dev/null --silent --head --fail http://localhost:5000/
     then
         echo "Online"
@@ -14,5 +16,6 @@ do
     fi
 done
 
-C:\\Users\\nana-\\anaconda3\\python.exe test_app.py
+C:\\Users\\nana-\\anaconda3\\envs\\data_engineering\\python.exe test_app.py
+C:\\Users\\nana-\\anaconda3\\envs\\data_engineering\\python.exe src/test/test_process_and_predict.py
 sleep 50
