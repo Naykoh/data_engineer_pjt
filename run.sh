@@ -1,7 +1,4 @@
-start docker build -t sentiment_analysis .
-sleep 10
-start docker run -p 5000:5000 sentiment_analysis
-sleep 5
+start docker-compose up
 
 while true
 do
@@ -16,6 +13,5 @@ do
     fi
 done
 
-C:\\Users\\nana-\\anaconda3\\envs\\data_engineering\\python.exe test_app.py
-C:\\Users\\nana-\\anaconda3\\envs\\data_engineering\\python.exe src/test/test_process_and_predict.py
+C:\\Users\\$USERNAME\\anaconda3\\python.exe test_app.py
 sleep 50

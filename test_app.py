@@ -1,7 +1,6 @@
 import unittest
 import requests
 import os
-from lxml import html
 
 class FlaskTest(unittest.TestCase):
     def setUp(self):
@@ -20,16 +19,20 @@ class FlaskTest(unittest.TestCase):
             'form_type':'predict',
         }
 
-        result = "prediction : __label__2 "
+         
+        result =b'<HTML>\n    <BODY bgcolor="green">\n    <form method="POST" action="">\n        <center>\n        <H1 title="result">prediction : __label__2 </H1> <br>\n        \n        </center>\n    </form>\n    </BODY>\n    </HTML>\n    '
+    
 
         htmlresponse = requests.post('http://localhost:5000/',data=payload)
 
-        tree = html.fromstring(htmlresponse.content)
+        #tree = html.fromstring(htmlresponse.content)
 
-        prediction = tree.xpath('//h1[@title="result"]/text()')
-
+        #prediction = tree.xpath('//h1[@title="result"]/text()')
         self.assertEqual(htmlresponse.status_code,200)
-        self.assertEqual((''.join(prediction)).encode(),result.encode())
+        #self.assertEqual((''.join(prediction)).encode(),result.encode())
+        self.assertEqual(htmlresponse.content,result)
+
 
 if __name__=='__main__':
+    print('integration test')
     unittest.main()

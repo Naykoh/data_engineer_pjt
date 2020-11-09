@@ -47,7 +47,9 @@ conda activate sentiment_analysis
 ```
 ### Installation
 
-1. Build docker image
+1. Launch an anaconda prompt and put yourself in the directory
+
+2. Build docker image
 ```sh
 docker build -t sentiment_analysis .
 ```

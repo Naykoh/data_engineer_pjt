@@ -36,4 +36,5 @@ class FlaskTest(unittest.TestCase):
 
 
 if __name__=='__main__':
+    print('function test')
     unittest.main()
