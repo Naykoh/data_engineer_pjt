@@ -1,0 +1,1 @@
+gnome-terminal --tab -- bash -c "docker-compose down"

@@ -28,9 +28,35 @@ Built with: Docker
 <!-- GETTING STARTED -->
 ## Getting Started
 
-How to build and run the docker image
+### Requirments 
+You will need anaconda and git bash installed on your pc.
 
-### Prerequisites
+
+### Installation
+How to build and run the docker image.
+
+
+1. Launch an anaconda prompt and put yourself in the directory
+
+2. Build docker image and run it into container on localhost:5000
+```sh
+docker-compose up
+```
+3. The webapp is now running on localhost:5000, you can test if the integration is done correctly by doing
+```sh
+python test_app.py
+```
+4. Stop the container
+```sh
+docker-compose down
+```
+
+
+Those steps can be automated using shell script. You can run it on linux or windows. 
+run*.sh will buid and run the container.
+stop*.sh will stop the container.
+
+### (Optional) 
 This project has been done in a specific conda environment, to reproduce this environment:
 (reproducing the environment is not mandatory, but if you have problem, it is better to reproduce the same environment)
 
@@ -40,24 +66,7 @@ This project has been done in a specific conda environment, to reproduce this en
 ```sh
 conda env create -f environment.yml
 ```
-
 3. Activate this new environment
 ```sh
 conda activate sentiment_analysis
-```
-### Installation
-
-1. Launch an anaconda prompt and put yourself in the directory
-
-2. Build docker image
-```sh
-docker build -t sentiment_analysis .
-```
-2. Run the docker image on localhost:5000
-```sh
-docker run -p 5000:5000 sentiment_analysis
-```
-4. The image is now running on localhost:5000, you can test if the integration is done correctly by doing
-```sh
-python test_app.py
 ```
