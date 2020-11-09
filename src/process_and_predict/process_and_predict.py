@@ -36,7 +36,7 @@ def process(sentence):
     """
     # remove blank rows, lower case and perform tokenization
     sentence_tokenized = word_tokenize(sentence.lower())
-    
+
     # defaultdict is a dictionary that provides a default value if the index is not found
     # in this example, the dictionary defaults to nouns
     # tag_map = defaultdict(lambda : wn.NOUN)
@@ -64,7 +64,7 @@ def predict(processed_sentence):
         :param processed_sentence: sentence to predict
     """
 
-    
+
     vectorized_sentence = modelvectorizer.transform([processed_sentence])
     prediction = classifier.predict(vectorized_sentence)[0]
     return prediction

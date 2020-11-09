@@ -16,7 +16,7 @@ def predict(sentence):
 
     if status is not 'fail':
         status='prediction : {}'.format(prediction)
-    
+
     return status
 
 @app.route('/', methods=['GET','POST'])
@@ -29,7 +29,7 @@ def index():
             # prediction = process_and_predict.predict(processed_sentence)
             # return prediction
             return render_template('result.html',result=predict(details['sentence']))
-                         
+
 
     return render_template('index.html')
 

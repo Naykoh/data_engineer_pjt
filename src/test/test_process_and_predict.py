@@ -28,7 +28,7 @@ class FlaskTest(unittest.TestCase):
     def test_predict(self):
         #processed_sentence= "this product is nice"
         processed_sentence="['love', 'incredible', 'cookie']"
-    
+
         prediction = process_and_predict.predict(processed_sentence)
 
         self.assertEqual(prediction,"__label__2 ")
