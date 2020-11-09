@@ -5,7 +5,9 @@
     <H1>Sentiment analysis </H1> <br>
     Sentence <input type = "text" name = "sentence" /> <br>
     <input type="hidden" name="form_type" value="predict"/>
-    <input type = "submit">
+    <input type = "submit"><br>
+    <img name="sentiment-face" src="{{ url_for('static', filename=face) }}"> <br>
+    <H1 title="result">{{result}}</H1> <br>
     </center>
 </form>
 </BODY>

@@ -28,10 +28,16 @@ def index():
             # processed_sentence=process_and_predict.process(details['sentence'])
             # prediction = process_and_predict.predict(processed_sentence)
             # return prediction
-            return render_template('result.html',result=predict(details['sentence']))
+            prediction = predict(details['sentence'])
+            if (prediction =='prediction : __label__1 '):   
+                img_path = 'triste.png'
+            else:
+                img_path = 'sourire.png'   
+
+            return render_template('index.html',result=prediction,face=img_path)
 
 
-    return render_template('index.html')
+    return render_template('index.html',result='submit a sentence to predict',face='neutral.png')
 
 if __name__== '__main__':
 	app.run(host='0.0.0.0')
