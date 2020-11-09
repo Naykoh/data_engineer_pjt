@@ -28,8 +28,8 @@ Built with: Docker
 <!-- GETTING STARTED -->
 ## Getting Started
 
-### Requirments 
-You will need anaconda and git bash installed on your pc.
+### Requirements 
+You will need anaconda, git bash and docker installed on your pc.
 
 
 ### Installation
