@@ -1,10 +1,8 @@
 import unittest
-import os
 import sys
 sys.path.append("C:\\Users\\nana-\\data_engineer_pjt")
 
 from src.process_and_predict import process_and_predict
-import string
 
 from pathlib import Path
 
@@ -13,25 +11,31 @@ ROOT = Path(__file__).resolve().parents[2]
 
 class FlaskTest(unittest.TestCase):
     def setUp(self):
-        self.sentence="I love this incredible cookie !"
+        self.positive_sentence="I love this incredible cookie !"
+        self.neutral_sentence="I am going to school"
+        self.negative_sentence="I hate studies"
 
     def tearDown(self):
         pass
 
-    def test_process(self):
-        result = "['love', 'incredible', 'cookie']"
+    def test_classifier(self):
+        positive_classifier=process_and_predict.classifier(self.positive_sentence)
+        neutral_classifier=process_and_predict.classifier(self.neutral_sentence)
+        negative_classifier=process_and_predict.classifier(self.negative_sentence)
 
-        processed_sentence=process_and_predict.process(self.sentence)
-
-        self.assertEqual(processed_sentence,result)
+        self.assertEqual(positive_classifier,'positive')
+        self.assertEqual(neutral_classifier,'neutral')
+        self.assertEqual(negative_classifier,'negative')
 
     def test_predict(self):
-        #processed_sentence= "this product is nice"
-        processed_sentence="['love', 'incredible', 'cookie']"
 
-        prediction = process_and_predict.predict(processed_sentence)
+        positive_predict=process_and_predict.predict(self.positive_sentence)
+        neutral_predict=process_and_predict.predict(self.neutral_sentence)
+        negative_predict=process_and_predict.predict(self.negative_sentence)
 
-        self.assertEqual(prediction,"__label__2 ")
+        self.assertEqual(positive_predict,'positive')
+        self.assertEqual(neutral_predict,'neutral')
+        self.assertEqual(negative_predict,'negative')
 
 
 
