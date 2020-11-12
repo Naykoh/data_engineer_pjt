@@ -11,10 +11,9 @@ The purpose of this project is to combine all the skills collected throughout th
 
 ## Technical Description
 ### The ML model
-Classification of amazon reviews for sentiment analysis : 
-* prediction : "__label1__" means that it is a bad review
-* prediction : "__label2__" means that it is a good review
-Built with: ntlk, pickle, sklearn( TfidfVectorizer and Naive Bayes)
+Classification of tweets and reddit comments for sentiment analysis : 
+* prediction : negative, neutral, positive
+Built with: tensorflow
 
 ### The Web Interface
 Web interface based on the ML model to predict sentiment of sentence.
