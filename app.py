@@ -1,7 +1,5 @@
 from flask import Flask, request, render_template
-import json
 from src.process_and_predict import process_and_predict
-import os
 
 
 app = Flask(__name__)
@@ -9,8 +7,7 @@ app = Flask(__name__)
 def predict(sentence):
     status='success'
     try:
-        processed_sentence=process_and_predict.process(sentence)
-        prediction = process_and_predict.predict(processed_sentence)
+        prediction = process_and_predict.predict(sentence)
     except:
         status='fail'
 
@@ -25,14 +22,13 @@ def index():
         details=request.form
 
         if details['form_type'] == 'predict':
-            # processed_sentence=process_and_predict.process(details['sentence'])
-            # prediction = process_and_predict.predict(processed_sentence)
-            # return prediction
             prediction = predict(details['sentence'])
-            if (prediction =='prediction : __label__1 '):   
-                img_path = 'triste.png'
+            if (prediction =='prediction : positive'):   
+                img_path = 'sourire.png'
+            elif (prediction =='prediction : neutral'):
+                img_path = 'neutral.png'
             else:
-                img_path = 'sourire.png'   
+                img_path ='triste.png'
 
             return render_template('index.html',result=prediction,face=img_path)
 
@@ -40,4 +36,4 @@ def index():
     return render_template('index.html',result='submit a sentence to predict',face='neutral.png')
 
 if __name__== '__main__':
-	app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0')
